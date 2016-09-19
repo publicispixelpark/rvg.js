@@ -1,22 +1,21 @@
 {
-  "name": "rvg",
+  "name": "rvg.js",
   "version": "1.0.0",
   "description": "React-based SVG builder",
-  "main": "src/main.js",
+  "main": "rvg.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "author": "Chris Hutchinson",
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.14.0",
+    "react": "^15.3.1"
+  },
+  "dev-dependencies": {
     "babel-core": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-register": "^6.14.0",
-    "btoa": "^1.1.2",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "svg2png": "^4.0.0"
+    "babel-preset-react": "^6.11.1"
   }
 }
