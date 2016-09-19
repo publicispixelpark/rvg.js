@@ -2,11 +2,11 @@
   "name": "rvg.js",
   "version": "1.0.0",
   "description": "React-based SVG builder",
-  "main": "rvg.js",
+  "main": "dist/elements.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "babel ./src --out-dir ./dist --source-maps --presets es2015,react",
+    "watch": "babel ./src --out-dir ./dist --source-maps --presets es2015,react --watch"
   },
   "author": "Chris Hutchinson",
   "license": "ISC",

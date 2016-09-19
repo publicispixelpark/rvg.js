@@ -16,11 +16,8 @@ class Text extends React.Component {
 
     if(util.isArray(text)) {
       text = text.map((string, index) => {
-        return (<Text key={index} x={x} y={(lineHeight * index) + y} fill={fill} fontSize={fontSize} fontFamily={fontFamily}>{string}</Text>);
+        return (<tspan key={index} x={x} y={(lineHeight * index) + y}>{string}</tspan>);
       });
-
-      // Return a group of `<Text />` elements instead, maybe it'll work...
-      return (<g>{text}</g>);
     }
 
     return (

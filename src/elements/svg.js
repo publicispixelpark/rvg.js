@@ -10,7 +10,9 @@ class SVG extends React.Component {
     const { height, width, fill, children } = this.props;
 
     return (
-      <svg height="100%" width="100%" viewBox={'0 0 ' + width + ' ' + height}>
+      <svg height="100%"
+           width="100%"
+           viewBox={'0 0 ' + width + ' ' + height}>
 
         <rect x="0" y="0" width={width} height={height} fill={fill} />
         
