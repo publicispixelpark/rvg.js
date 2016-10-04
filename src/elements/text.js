@@ -7,7 +7,8 @@ class Text extends React.Component {
     const {
       x, y,
       fill,
-      fontSize, fontFamily
+      fontSize, fontFamily,
+      textAnchor
     } = this.props;
     
     let text = this.props.children;
@@ -16,12 +17,12 @@ class Text extends React.Component {
 
     if(util.isArray(text)) {
       text = text.map((string, index) => {
-        return (<tspan key={index} x={x} y={(lineHeight * index) + y}>{string}</tspan>);
+        return (<tspan key={index} x={x} y={(lineHeight * index) + y} alignmentBaseline="before-edge">{string}</tspan>);
       });
     }
 
     return (
-      <text x={x} y={y} fill={fill} textAnchor="start" fontSize={fontSize} fontFamily={fontFamily}>
+      <text x={x} y={y} fill={fill} textAnchor={textAnchor} fontSize={fontSize} fontFamily={fontFamily}>
         {text}
       </text>
     );
@@ -35,7 +36,8 @@ Text.propTypes = {
   y: React.PropTypes.any.isRequired,
   fill: React.PropTypes.string.isRequired,
   fontSize: React.PropTypes.number,
-  fontFamily: React.PropTypes.string
+  fontFamily: React.PropTypes.string,
+  textAnchor: React.PropTypes.string
 };
 
 Text.defaultProps = {
@@ -43,7 +45,8 @@ Text.defaultProps = {
   y: 0,
   fill: '#000',
   fontSize: 20,
-  fontFamily: 'serif'
+  fontFamily: 'serif',
+  textAnchor: 'start'
 }
 
 module.exports = Text;

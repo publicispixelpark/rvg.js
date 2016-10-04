@@ -29,6 +29,7 @@ var Text = function (_React$Component) {
       var fill = _props.fill;
       var fontSize = _props.fontSize;
       var fontFamily = _props.fontFamily;
+      var textAnchor = _props.textAnchor;
 
 
       var text = this.props.children;
@@ -39,7 +40,7 @@ var Text = function (_React$Component) {
         text = text.map(function (string, index) {
           return React.createElement(
             'tspan',
-            { key: index, x: x, y: lineHeight * index + y },
+            { key: index, x: x, y: lineHeight * index + y, alignmentBaseline: 'before-edge' },
             string
           );
         });
@@ -47,7 +48,7 @@ var Text = function (_React$Component) {
 
       return React.createElement(
         'text',
-        { x: x, y: y, fill: fill, textAnchor: 'start', fontSize: fontSize, fontFamily: fontFamily },
+        { x: x, y: y, fill: fill, textAnchor: textAnchor, fontSize: fontSize, fontFamily: fontFamily },
         text
       );
     }
@@ -64,7 +65,8 @@ Text.propTypes = {
   y: React.PropTypes.any.isRequired,
   fill: React.PropTypes.string.isRequired,
   fontSize: React.PropTypes.number,
-  fontFamily: React.PropTypes.string
+  fontFamily: React.PropTypes.string,
+  textAnchor: React.PropTypes.string
 };
 
 Text.defaultProps = {
@@ -72,7 +74,8 @@ Text.defaultProps = {
   y: 0,
   fill: '#000',
   fontSize: 20,
-  fontFamily: 'serif'
+  fontFamily: 'serif',
+  textAnchor: 'start'
 };
 
 module.exports = Text;
