@@ -7,7 +7,7 @@ const {
   Circle,
   Ellipse,
   Line
-} = require('./elements');
+} = require('../dist/elements');
 
 class Main extends React.Component {
 
