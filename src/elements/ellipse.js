@@ -1,6 +1,8 @@
 const React = require('react');
 
-class Ellipse extends React.Component {
+const DraggableBase = require('./base/draggable');
+
+class Ellipse extends DraggableBase {
 
   render() {
     const {
@@ -10,7 +12,12 @@ class Ellipse extends React.Component {
     } = this.props;
     
     return (
-      <ellipse cx={x} cy={y} fill={fill} rx={radiusX} ry={radiusY} />
+      <ellipse cx={x}
+               cy={y}
+               fill={fill}
+               rx={radiusX}
+               ry={radiusY}
+               {...this.draggableProps} />
     );
   }
 

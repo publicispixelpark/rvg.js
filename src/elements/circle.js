@@ -1,6 +1,8 @@
 const React = require('react');
 
-class Circle extends React.Component {
+const DraggableBase = require('./base/draggable');
+
+class Circle extends DraggableBase {
 
   render() {
     const {
@@ -10,7 +12,11 @@ class Circle extends React.Component {
     } = this.props;
     
     return (
-      <circle cx={x} cy={y} fill={fill} r={radius} />
+      <circle cx={x}
+              cy={y}
+              fill={fill}
+              r={radius}
+              {...this.draggableProps} />
     );
   }
 

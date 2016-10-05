@@ -1,7 +1,8 @@
-const util = require('util');
 const React = require('react');
 
-class Rectangle extends React.Component {
+const DraggableBase = require('./base/draggable');
+
+class Rectangle extends DraggableBase {
 
   render() {
     const {
@@ -11,7 +12,12 @@ class Rectangle extends React.Component {
     } = this.props;
     
     return (
-      <rect x={x} y={y} fill={fill} height={height} width={width} />
+      <rect x={x}
+            y={y}
+            fill={fill}
+            height={height}
+            width={width}
+            {...this.draggableProps} />
     );
   }
 

@@ -16,7 +16,7 @@ var SVG = function (_React$Component) {
   function SVG(props) {
     _classCallCheck(this, SVG);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(SVG).call(this, props));
+    return _possibleConstructorReturn(this, (SVG.__proto__ || Object.getPrototypeOf(SVG)).call(this, props));
   }
 
   _createClass(SVG, [{

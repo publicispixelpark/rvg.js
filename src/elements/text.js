@@ -1,7 +1,9 @@
 const util = require('util');
 const React = require('react');
 
-class Text extends React.Component {
+const DraggableBase = require('./base/draggable');
+
+class Text extends DraggableBase {
 
   render() {
     const {
@@ -22,7 +24,13 @@ class Text extends React.Component {
     }
 
     return (
-      <text x={x} y={y} fill={fill} textAnchor={textAnchor} fontSize={fontSize} fontFamily={fontFamily}>
+      <text x={x}
+            y={y}
+            fill={fill}
+            textAnchor={textAnchor}
+            fontSize={fontSize}
+            fontFamily={fontFamily}
+            {...this.draggableProps}>
         {text}
       </text>
     );

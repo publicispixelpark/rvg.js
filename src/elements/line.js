@@ -1,6 +1,8 @@
 const React = require('react');
 
-class Line extends React.Component {
+const DraggableBase = require('./base/draggable');
+
+class Line extends DraggableBase {
 
   render() {
     const {
@@ -9,7 +11,12 @@ class Line extends React.Component {
     } = this.props;
     
     return (
-      <line x1={x[0]} x2={x[1]} y1={y[0]} y2={y[1]} stroke={stroke} />
+      <line x1={x[0]}
+            x2={x[1]}
+            y1={y[0]}
+            y2={y[1]}
+            stroke={stroke}
+            {...this.draggableProps} />
     );
   }
 
