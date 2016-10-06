@@ -26,7 +26,7 @@ var DraggableBase = function (_React$Component) {
     _this.isDragging = false;
 
     _this.state = {
-      transform: 'matrix(1 0 0 1 0 0)'
+      transform: _this.props.transform || 'matrix(1 0 0 1 0 0)'
     };
 
     _this.handleMouseDown = _this.handleMouseDown.bind(_this);

@@ -14,56 +14,42 @@ var React = require('react');
 
 var DraggableBase = require('./base/draggable');
 
-var Image = function (_DraggableBase) {
-  _inherits(Image, _DraggableBase);
+var Path = function (_DraggableBase) {
+  _inherits(Path, _DraggableBase);
 
-  function Image() {
-    _classCallCheck(this, Image);
+  function Path() {
+    _classCallCheck(this, Path);
 
-    return _possibleConstructorReturn(this, (Image.__proto__ || Object.getPrototypeOf(Image)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Path.__proto__ || Object.getPrototypeOf(Path)).apply(this, arguments));
   }
 
-  _createClass(Image, [{
+  _createClass(Path, [{
     key: 'render',
     value: function render() {
       var _props = this.props;
-      var x = _props.x;
-      var y = _props.y;
-      var height = _props.height;
-      var width = _props.width;
-      var href = _props.href;
-      var opacity = _props.opacity;
+      var d = _props.d;
+      var fill = _props.fill;
+      var transform = _props.transform;
 
 
-      return React.createElement('image', _extends({ xlinkHref: href,
-        x: x,
-        y: y,
-        height: height,
-        width: width,
-        preserveAspectRatio: 'xMinYMin meet',
-        opacity: opacity
+      return React.createElement('path', _extends({ d: d,
+        fill: fill,
+        transform: transform
       }, this.draggableProps));
     }
   }]);
 
-  return Image;
+  return Path;
 }(DraggableBase);
 
 // Prop types
 
 
-Image.propTypes = {
-  x: React.PropTypes.number.isRequired,
-  y: React.PropTypes.number.isRequired,
-  href: React.PropTypes.string.isRequired,
-  ratio: React.PropTypes.string.isRequired
+Path.propTypes = {
+  d: React.PropTypes.string.isRequired
 };
 
-Image.defaultProps = {
-  x: 0,
-  y: 0,
-  ratio: "auto"
-};
+Path.defaultProps = {};
 
-module.exports = Image;
-//# sourceMappingURL=image.js.map
+module.exports = Path;
+//# sourceMappingURL=path.js.map

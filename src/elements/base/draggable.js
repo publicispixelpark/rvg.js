@@ -13,7 +13,7 @@ class DraggableBase extends React.Component {
     this.isDragging = false;
 
     this.state = {
-      transform: 'matrix(1 0 0 1 0 0)'
+      transform: this.props.transform || 'matrix(1 0 0 1 0 0)'
     };
 
     this.handleMouseDown = this.handleMouseDown.bind(this);

@@ -5,5 +5,6 @@ module.exports = {
   Circle: require('./elements/circle'),
   Ellipse: require('./elements/ellipse'),
   Line: require('./elements/line'),
-  Image: require('./elements/image')
+  Image: require('./elements/image'),
+  Path: require('./elements/path')
 };

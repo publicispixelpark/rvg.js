@@ -8,7 +8,8 @@ class Image extends DraggableBase {
     const {
       x, y,
       height, width,
-      href
+      href,
+      opacity
     } = this.props;
 
     return (
@@ -18,6 +19,7 @@ class Image extends DraggableBase {
              height={height}
              width={width}
              preserveAspectRatio="xMinYMin meet"
+             opacity={opacity}
              {...this.draggableProps} />
     );
   }
