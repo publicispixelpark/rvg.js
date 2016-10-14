@@ -74,7 +74,7 @@ Create your SVG using React:
 * [ ] Add some tests
 * [ ] Build a better example
 * [ ] Handle inlining of custom fonts and provide example
-* [ ] Gradients
+* [x] Gradients
 * [ ] Polylines
 * [ ] Animation (?!)
 * [ ] Groups
