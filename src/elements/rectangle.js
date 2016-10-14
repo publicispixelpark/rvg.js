@@ -5,11 +5,15 @@ const DraggableBase = require('./base/draggable');
 class Rectangle extends DraggableBase {
 
   render() {
-    const {
+    let {
       x, y,
-      fill,
+      fill, gradient,
       height, width
     } = this.props;
+
+    if(gradient) {
+      fill = gradient;
+    }
     
     return (
       <rect x={x}

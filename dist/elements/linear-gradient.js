@@ -1,7 +1,5 @@
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12,63 +10,49 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var React = require('react');
 
-var DraggableBase = require('./base/draggable');
+var LinearGradient = function (_React$Component) {
+  _inherits(LinearGradient, _React$Component);
 
-var Rectangle = function (_DraggableBase) {
-  _inherits(Rectangle, _DraggableBase);
+  function LinearGradient() {
+    _classCallCheck(this, LinearGradient);
 
-  function Rectangle() {
-    _classCallCheck(this, Rectangle);
-
-    return _possibleConstructorReturn(this, (Rectangle.__proto__ || Object.getPrototypeOf(Rectangle)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (LinearGradient.__proto__ || Object.getPrototypeOf(LinearGradient)).apply(this, arguments));
   }
 
-  _createClass(Rectangle, [{
+  _createClass(LinearGradient, [{
     key: 'render',
     value: function render() {
       var _props = this.props;
-      var x = _props.x;
-      var y = _props.y;
-      var fill = _props.fill;
-      var gradient = _props.gradient;
-      var height = _props.height;
-      var width = _props.width;
+      var name = _props.name;
+      var x1 = _props.x1;
+      var x2 = _props.x2;
+      var y1 = _props.y1;
+      var y2 = _props.y2;
+      var stops = _props.stops;
 
 
-      if (gradient) {
-        fill = gradient;
-      }
-
-      return React.createElement('rect', _extends({ x: x,
-        y: y,
-        fill: fill,
-        height: height,
-        width: width
-      }, this.draggableProps));
+      return React.createElement(
+        'linearGradient',
+        { id: name, x1: x1, x2: x2, y1: y1, y2: y2 },
+        stops.map(function (stop, index) {
+          return React.createElement('stop', { key: index,
+            offset: stop.offset,
+            stopColor: stop.color,
+            stopOpacity: stop.opacity });
+        })
+      );
     }
   }]);
 
-  return Rectangle;
-}(DraggableBase);
+  return LinearGradient;
+}(React.Component);
 
 // Prop types
 
 
-Rectangle.propTypes = {
-  x: React.PropTypes.any.isRequired,
-  y: React.PropTypes.any.isRequired,
-  fill: React.PropTypes.string.isRequired,
-  height: React.PropTypes.any.isRequired,
-  width: React.PropTypes.any.isRequired
-};
+LinearGradient.propTypes = {};
 
-Rectangle.defaultProps = {
-  x: 0,
-  y: 0,
-  fill: '#000',
-  height: 100,
-  width: 100
-};
+LinearGradient.defaultProps = {};
 
-module.exports = Rectangle;
-//# sourceMappingURL=rectangle.js.map
+module.exports = LinearGradient;
+//# sourceMappingURL=linear-gradient.js.map

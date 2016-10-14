@@ -6,5 +6,6 @@ module.exports = {
   Ellipse: require('./elements/ellipse'),
   Line: require('./elements/line'),
   Image: require('./elements/image'),
-  Path: require('./elements/path')
+  Path: require('./elements/path'),
+  LinearGradient: require('./elements/linear-gradient')
 };
