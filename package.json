@@ -1,12 +1,12 @@
 {
   "name": "rvg.js",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "React-based SVG builder",
   "main": "dist/elements.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/babel-cli/bin/babel.js ./src --out-dir ./dist --source-maps --presets es2015,react",
-    "watch": "./node_modules/babel-cli/bin/babel.js ./src --out-dir ./dist --source-maps --presets es2015,react --watch"
+    "build": "./node_modules/babel-cli/bin/babel.js ./src --out-dir ./dist --presets es2015,react",
+    "watch": "./node_modules/babel-cli/bin/babel.js ./src --out-dir ./dist --presets es2015,react --watch"
   },
   "author": "Chris Hutchinson",
   "license": "ISC",

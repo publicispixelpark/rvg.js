@@ -66,4 +66,3 @@ Ellipse.defaultProps = {
 };
 
 module.exports = Ellipse;
-//# sourceMappingURL=ellipse.js.map

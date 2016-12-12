@@ -55,4 +55,3 @@ LinearGradient.propTypes = {};
 LinearGradient.defaultProps = {};
 
 module.exports = LinearGradient;
-//# sourceMappingURL=linear-gradient.js.map
