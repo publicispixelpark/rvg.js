@@ -33,6 +33,7 @@ var Text = function (_DraggableBase) {
       var fill = _props.fill;
       var fontSize = _props.fontSize;
       var fontFamily = _props.fontFamily;
+      var fontWeight = _props.fontWeight;
       var textAnchor = _props.textAnchor;
 
 
@@ -57,7 +58,8 @@ var Text = function (_DraggableBase) {
           fill: fill,
           textAnchor: textAnchor,
           fontSize: fontSize,
-          fontFamily: fontFamily
+          fontFamily: fontFamily,
+          fontWeight: fontWeight
         }, this.draggableProps),
         text
       );

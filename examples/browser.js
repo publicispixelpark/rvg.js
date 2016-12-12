@@ -16,7 +16,7 @@ class Main extends React.Component {
       <SVG height={462} width={1000} fill="#333">
 
         {/* Title */}
-        <Text x={20} y={100} fontFamily="Georgia" fontSize={40} lineHeight={50} fill="#FFF">
+        <Text x={20} y={100} fontFamily="Georgia" fontSize={40} fontWeight="bold" lineHeight={50} fill="#FFF">
           {'This is my string'}
           {'broken over'}
           {'multiple'}
