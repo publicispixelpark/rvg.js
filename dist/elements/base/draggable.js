@@ -39,4 +39,3 @@ var DraggableBase = function (_React$Component) {
 }(React.Component);
 
 module.exports = DraggableBase;
-//# sourceMappingURL=draggable.js.map

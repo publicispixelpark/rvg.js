@@ -91,4 +91,3 @@ Text.defaultProps = {
 };
 
 module.exports = Text;
-//# sourceMappingURL=text.js.map

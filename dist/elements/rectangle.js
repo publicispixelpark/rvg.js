@@ -71,4 +71,3 @@ Rectangle.defaultProps = {
 };
 
 module.exports = Rectangle;
-//# sourceMappingURL=rectangle.js.map

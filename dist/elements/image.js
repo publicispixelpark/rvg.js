@@ -66,4 +66,3 @@ Image.defaultProps = {
 };
 
 module.exports = Image;
-//# sourceMappingURL=image.js.map

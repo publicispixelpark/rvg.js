@@ -60,4 +60,3 @@ Line.defaultProps = {
 };
 
 module.exports = Line;
-//# sourceMappingURL=line.js.map

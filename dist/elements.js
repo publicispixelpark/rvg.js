@@ -11,4 +11,3 @@ module.exports = {
   Path: require('./elements/path'),
   LinearGradient: require('./elements/linear-gradient')
 };
-//# sourceMappingURL=elements.js.map

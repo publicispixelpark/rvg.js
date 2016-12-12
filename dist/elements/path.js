@@ -52,4 +52,3 @@ Path.propTypes = {
 Path.defaultProps = {};
 
 module.exports = Path;
-//# sourceMappingURL=path.js.map

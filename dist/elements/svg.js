@@ -142,4 +142,3 @@ SVG.defaultProps = {
 };
 
 module.exports = SVG;
-//# sourceMappingURL=svg.js.map

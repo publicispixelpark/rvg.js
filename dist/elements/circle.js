@@ -62,4 +62,3 @@ Circle.defaultProps = {
 };
 
 module.exports = Circle;
-//# sourceMappingURL=circle.js.map
