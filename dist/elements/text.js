@@ -39,11 +39,19 @@ var Text = function (_DraggableBase) {
   }
 
   _createClass(Text, [{
+    key: 'height',
+    value: function height() {
+      console.log(this);
+      return 10;
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props;
       var x = _props.x;
       var y = _props.y;
+      var width = _props.width;
+      var wrapping = _props.wrapping;
       var fill = _props.fill;
       var fontSize = _props.fontSize;
       var fontFamily = _props.fontFamily;
@@ -56,22 +64,50 @@ var Text = function (_DraggableBase) {
 
       var lineHeight = this.props.lineHeight || fontSize;
 
+      var svgPropsToStyle = {
+        color: fill || null,
+        fontSize: fontSize,
+        fontFamily: fontFamily,
+        fontWeight: fontWeight,
+        margin: 0
+      };
+
       if (util.isArray(text)) {
         text = text.map(function (string, index) {
           if (true === smartQuotes) {
             string = string.addSmartQuotes();
           }
 
-          return React.createElement(
-            'tspan',
-            { key: index, x: x, y: lineHeight * index + y, alignmentBaseline: 'before-edge' },
-            string
-          );
+          if (wrapping && width) {
+            return React.createElement(
+              'p',
+              { key: index, xmlns: 'http://www.w3.org/1999/xhtml', style: svgPropsToStyle },
+              string
+            );
+          } else {
+            return React.createElement(
+              'tspan',
+              { key: index, x: x, y: lineHeight * index + y, alignmentBaseline: 'before-edge' },
+              string
+            );
+          }
         });
       } else {
         if (true === smartQuotes) {
           text = text.addSmartQuotes();
         }
+      }
+
+      if (wrapping && width) {
+        return React.createElement(
+          'foreignObject',
+          _extends({ x: x,
+            y: y,
+            width: width,
+            ref: 'text'
+          }, this.draggableProps),
+          text
+        );
       }
 
       return React.createElement(

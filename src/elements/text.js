@@ -19,9 +19,15 @@ String.prototype.addSmartQuotes = function() {
 
 class Text extends DraggableBase {
 
+  height() {
+    console.log(this);
+    return 10;
+  }
+
   render() {
     const {
       x, y,
+      width, wrapping,
       fill,
       fontSize, fontFamily, fontWeight,
       textAnchor, smartQuotes
@@ -31,18 +37,38 @@ class Text extends DraggableBase {
 
     let lineHeight = this.props.lineHeight || fontSize;
 
+    const svgPropsToStyle = {
+      color: fill || null,
+      fontSize: fontSize,
+      fontFamily: fontFamily,
+      fontWeight: fontWeight,
+      margin: 0
+    };
+
     if(util.isArray(text)) {
       text = text.map((string, index) => {
         if(true === smartQuotes) {
           string = string.addSmartQuotes();
         }
 
-        return (<tspan key={index} x={x} y={(lineHeight * index) + y} alignmentBaseline="before-edge">{string}</tspan>);
+        if(wrapping && width) {
+          return (<p key={index} xmlns="http://www.w3.org/1999/xhtml" style={svgPropsToStyle}>{string}</p>);
+        } else {
+          return (<tspan key={index} x={x} y={(lineHeight * index) + y} alignmentBaseline="before-edge">{string}</tspan>);
+        }
       });
     } else {
       if(true === smartQuotes) {
         text = text.addSmartQuotes();
       }
+    }
+
+    if(wrapping && width) {
+      return (<foreignObject x={x}
+                y={y}
+                width={width}
+                ref="text"
+                {...this.draggableProps}>{text}</foreignObject>)
     }
 
     return (
