@@ -26,10 +26,10 @@ var Line = function (_DraggableBase) {
   _createClass(Line, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var x = _props.x;
-      var y = _props.y;
-      var stroke = _props.stroke;
+      var _props = this.props,
+          x = _props.x,
+          y = _props.y,
+          stroke = _props.stroke;
 
 
       return React.createElement('line', _extends({ x1: x[0],

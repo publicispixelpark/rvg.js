@@ -26,13 +26,13 @@ var Image = function (_DraggableBase) {
   _createClass(Image, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var x = _props.x;
-      var y = _props.y;
-      var height = _props.height;
-      var width = _props.width;
-      var href = _props.href;
-      var opacity = _props.opacity;
+      var _props = this.props,
+          x = _props.x,
+          y = _props.y,
+          height = _props.height,
+          width = _props.width,
+          href = _props.href,
+          opacity = _props.opacity;
 
 
       return React.createElement('image', _extends({ xlinkHref: href,

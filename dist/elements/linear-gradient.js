@@ -22,13 +22,13 @@ var LinearGradient = function (_React$Component) {
   _createClass(LinearGradient, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var name = _props.name;
-      var x1 = _props.x1;
-      var x2 = _props.x2;
-      var y1 = _props.y1;
-      var y2 = _props.y2;
-      var stops = _props.stops;
+      var _props = this.props,
+          name = _props.name,
+          x1 = _props.x1,
+          x2 = _props.x2,
+          y1 = _props.y1,
+          y2 = _props.y2,
+          stops = _props.stops;
 
 
       return React.createElement(

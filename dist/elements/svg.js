@@ -102,11 +102,11 @@ var SVG = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var height = _props.height;
-      var width = _props.width;
-      var fill = _props.fill;
-      var children = _props.children;
+      var _props = this.props,
+          height = _props.height,
+          width = _props.width,
+          fill = _props.fill,
+          children = _props.children;
 
 
       return React.createElement(

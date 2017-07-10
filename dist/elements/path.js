@@ -26,10 +26,10 @@ var Path = function (_DraggableBase) {
   _createClass(Path, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var d = _props.d;
-      var fill = _props.fill;
-      var transform = _props.transform;
+      var _props = this.props,
+          d = _props.d,
+          fill = _props.fill,
+          transform = _props.transform;
 
 
       return React.createElement('path', _extends({ d: d,

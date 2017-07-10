@@ -26,12 +26,12 @@ var Ellipse = function (_DraggableBase) {
   _createClass(Ellipse, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var x = _props.x;
-      var y = _props.y;
-      var fill = _props.fill;
-      var radiusX = _props.radiusX;
-      var radiusY = _props.radiusY;
+      var _props = this.props,
+          x = _props.x,
+          y = _props.y,
+          fill = _props.fill,
+          radiusX = _props.radiusX,
+          radiusY = _props.radiusY;
 
 
       return React.createElement('ellipse', _extends({ cx: x,

@@ -16,17 +16,17 @@ var React = require('react');
 var DraggableBase = require('./base/draggable');
 
 String.prototype.addSmartQuotes = function () {
-  return this.replace(/(\W|^)"(\S)/g, '$1“$2') // beginning "
-  .replace(/(\u201c[^"]*)"([^"]*$|[^\u201c"]*\u201c)/g, '$1”$2') // ending "
-  .replace(/([^0-9])"/g, '$1”') // remaining " at end of word
-  .replace(/(\W|^)'(\S)/g, '$1‘$2') // beginning '
-  .replace(/([a-z])'([a-z])/ig, '$1’$2') // conjunction's possession
-  .replace(/((\u2018[^']*)|[a-z])'([^0-9]|$)/ig, '$1’$3') // ending '
-  .replace(/(\u2018)([0-9]{2}[^\u2019]*)(\u2018([^0-9]|$)|$|\u2019[a-z])/ig, '’$2$3') // abbrev. years like '93
-  .replace(/(\B|^)\u2018(?=([^\u2019]*\u2019\b)*([^\u2019\u2018]*\W[\u2019\u2018]\b|[^\u2019\u2018]*$))/ig, '$1’') // backwards apostrophe
-  .replace(/'''/g, '‴') // triple prime
-  .replace(/("|'')/g, '″') // double prime
-  .replace(/'/g, '′'); // prime
+  return this.replace(/(\W|^)"(\S)/g, '$1\u201C$2') // beginning "
+  .replace(/(\u201c[^"]*)"([^"]*$|[^\u201c"]*\u201c)/g, '$1\u201D$2') // ending "
+  .replace(/([^0-9])"/g, '$1\u201D') // remaining " at end of word
+  .replace(/(\W|^)'(\S)/g, '$1\u2018$2') // beginning '
+  .replace(/([a-z])'([a-z])/ig, '$1\u2019$2') // conjunction's possession
+  .replace(/((\u2018[^']*)|[a-z])'([^0-9]|$)/ig, '$1\u2019$3') // ending '
+  .replace(/(\u2018)([0-9]{2}[^\u2019]*)(\u2018([^0-9]|$)|$|\u2019[a-z])/ig, '\u2019$2$3') // abbrev. years like '93
+  .replace(/(\B|^)\u2018(?=([^\u2019]*\u2019\b)*([^\u2019\u2018]*\W[\u2019\u2018]\b|[^\u2019\u2018]*$))/ig, '$1\u2019') // backwards apostrophe
+  .replace(/'''/g, '\u2034') // triple prime
+  .replace(/("|'')/g, '\u2033') // double prime
+  .replace(/'/g, '\u2032'); // prime
 };
 
 var Text = function (_DraggableBase) {
@@ -41,15 +41,16 @@ var Text = function (_DraggableBase) {
   _createClass(Text, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var x = _props.x;
-      var y = _props.y;
-      var fill = _props.fill;
-      var fontSize = _props.fontSize;
-      var fontFamily = _props.fontFamily;
-      var fontWeight = _props.fontWeight;
-      var textAnchor = _props.textAnchor;
-      var smartQuotes = _props.smartQuotes;
+      var _props = this.props,
+          x = _props.x,
+          y = _props.y,
+          fill = _props.fill,
+          fontSize = _props.fontSize,
+          fontFamily = _props.fontFamily,
+          fontWeight = _props.fontWeight,
+          fontStyle = _props.fontStyle,
+          textAnchor = _props.textAnchor,
+          smartQuotes = _props.smartQuotes;
 
 
       var text = this.props.children;
@@ -82,7 +83,8 @@ var Text = function (_DraggableBase) {
           textAnchor: textAnchor,
           fontSize: fontSize,
           fontFamily: fontFamily,
-          fontWeight: fontWeight
+          fontWeight: fontWeight,
+          fontStyle: fontStyle
         }, this.draggableProps),
         text
       );
@@ -101,6 +103,7 @@ Text.propTypes = {
   fill: React.PropTypes.string.isRequired,
   fontSize: React.PropTypes.number,
   fontFamily: React.PropTypes.string,
+  fontStyle: React.PropTypes.string,
   textAnchor: React.PropTypes.string
 };
 
@@ -110,6 +113,8 @@ Text.defaultProps = {
   fill: '#000',
   fontSize: 20,
   fontFamily: 'serif',
+  fontWeight: 'normal',
+  fontStyle: 'normal',
   textAnchor: 'start'
 };
 

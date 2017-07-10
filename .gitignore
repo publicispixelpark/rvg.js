@@ -1,6 +1,8 @@
+.idea/
+
 cardkitserver.js
 cardkit.js
 image.png
-node_modules
+node_modules/
 
 .DS_Store

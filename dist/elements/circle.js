@@ -26,11 +26,11 @@ var Circle = function (_DraggableBase) {
   _createClass(Circle, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var x = _props.x;
-      var y = _props.y;
-      var fill = _props.fill;
-      var radius = _props.radius;
+      var _props = this.props,
+          x = _props.x,
+          y = _props.y,
+          fill = _props.fill,
+          radius = _props.radius;
 
 
       return React.createElement('circle', _extends({ cx: x,

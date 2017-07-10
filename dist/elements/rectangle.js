@@ -26,13 +26,13 @@ var Rectangle = function (_DraggableBase) {
   _createClass(Rectangle, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var x = _props.x;
-      var y = _props.y;
-      var fill = _props.fill;
-      var gradient = _props.gradient;
-      var height = _props.height;
-      var width = _props.width;
+      var _props = this.props,
+          x = _props.x,
+          y = _props.y,
+          fill = _props.fill,
+          gradient = _props.gradient,
+          height = _props.height,
+          width = _props.width;
 
 
       if (gradient) {
