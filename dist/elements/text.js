@@ -65,7 +65,7 @@ var Text = function (_DraggableBase) {
 
           return React.createElement(
             'tspan',
-            { key: index, x: x, y: lineHeight * index + y, alignmentBaseline: 'before-edge' },
+            { key: index, x: x, y: lineHeight * index + y, alignmentBaseline: 'middle' },
             string
           );
         });

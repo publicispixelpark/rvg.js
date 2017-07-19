@@ -37,7 +37,7 @@ class Text extends DraggableBase {
           string = string.addSmartQuotes();
         }
 
-        return (<tspan key={index} x={x} y={(lineHeight * index) + y} alignmentBaseline="before-edge">{string}</tspan>);
+        return (<tspan key={index} x={x} y={(lineHeight * index) + y} alignmentBaseline="middle">{string}</tspan>);
       });
     } else {
       if(true === smartQuotes) {
