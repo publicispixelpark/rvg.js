@@ -72,28 +72,25 @@ var Text = function (_DraggableBase) {
                         var height = dim[0];
                         var width = dim[1];
 
-                        return React.createElement(
-                            'rect',
-                            _extends({ x: x,
-                                y: lineHeight * index + y,
-                                fill: backgroundColor,
-                                height: height,
-                                width: width,
-                                key: 'rect_' + index
-                            }, _this2.draggableProps),
-                            React.createElement(
-                                'tspan',
-                                { x: x,
-                                    y: lineHeight * index + y,
-                                    alignmentBaseline: 'middle',
-                                    key: 'txt_' + index },
-                                line
-                            )
-                        );
+                        return React.createElement('rect', _extends({ x: x,
+                            y: lineHeight * index + y,
+                            fill: backgroundColor,
+                            height: height,
+                            width: width,
+                            key: 'rect_' + index
+                        }, _this2.draggableProps));
+                        /* return (
+                             <tspan x={x}
+                                    y={(lineHeight * index) + y}
+                                    alignmentBaseline="middle"
+                                    key={'txt_' + index}>
+                                 {line}
+                             </tspan>);*/
                     } else {
                         return React.createElement(
                             'tspan',
-                            { key: index, x: x, y: lineHeight * index + y, alignmentBaseline: 'middle' },
+                            { key: index, x: x, y: lineHeight * index + y,
+                                alignmentBaseline: 'middle' },
                             line
                         );
                     }

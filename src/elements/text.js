@@ -44,30 +44,31 @@ class Text extends DraggableBase {
                 if ( true === smartQuotes ) {
                     line = line.addSmartQuotes();
                 }
-                if (backgroundColor) {
+                if ( backgroundColor ) {
                     let dim = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
                     let height = dim[0];
                     let width = dim[1];
 
-                    return (
-                        <rect x={x}
-                              y={(lineHeight * index) + y}
-                              fill={backgroundColor}
-                              height={height}
-                              width={width}
-                              key={'rect_' + index}
-                              {...this.draggableProps}>
-                            <tspan x={x}
+
+                    return (<rect x={x}
                                    y={(lineHeight * index) + y}
-                                   alignmentBaseline="middle"
-                                   key={'txt_' + index} >
-                                {line}
-                            </tspan>
-                        </rect>);
+                                   fill={backgroundColor}
+                                   height={height}
+                                   width={width}
+                                   key={'rect_' + index}
+                                   {...this.draggableProps}/>);
+                   /* return (
+                        <tspan x={x}
+                               y={(lineHeight * index) + y}
+                               alignmentBaseline="middle"
+                               key={'txt_' + index}>
+                            {line}
+                        </tspan>);*/
                 }
                 else {
                     return (
-                        <tspan key={index} x={x} y={(lineHeight * index) + y} alignmentBaseline="middle">{line}</tspan>);
+                        <tspan key={index} x={x} y={(lineHeight * index) + y}
+                               alignmentBaseline="middle">{line}</tspan>);
                 }
             });
         }
