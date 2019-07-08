@@ -9,5 +9,6 @@ module.exports = {
     Line: require('./elements/line'),
     Image: require('./elements/image'),
     Path: require('./elements/path'),
-    LinearGradient: require('./elements/linear-gradient')
+    LinearGradient: require('./elements/linear-gradient'),
+    ForeignObjects: require('./elements/foreignObject')
 };

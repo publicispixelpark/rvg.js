@@ -42,8 +42,6 @@ var Text = function (_DraggableBase) {
     _createClass(Text, [{
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
             var _props = this.props,
                 x = _props.x,
                 y = _props.y,
@@ -72,20 +70,21 @@ var Text = function (_DraggableBase) {
                         var height = dim[0];
                         var width = dim[1];
 
-                        return React.createElement('rect', _extends({ x: x,
-                            y: lineHeight * index + y,
-                            fill: backgroundColor,
-                            height: height,
-                            width: width,
-                            key: 'rect_' + index
-                        }, _this2.draggableProps));
-                        /* return (
-                             <tspan x={x}
-                                    y={(lineHeight * index) + y}
-                                    alignmentBaseline="middle"
-                                    key={'txt_' + index}>
-                                 {line}
-                             </tspan>);*/
+                        /*return (<rect x={x}
+                                       y={(lineHeight * index) + y}
+                                       fill={backgroundColor}
+                                       height={height}
+                                       width={width}
+                                       key={'rect_' + index}
+                                       {...this.draggableProps}/>);*/
+                        return React.createElement(
+                            'tspan',
+                            { x: x,
+                                y: lineHeight * index + y,
+                                alignmentBaseline: 'middle',
+                                key: 'txt_' + index },
+                            line
+                        );
                     } else {
                         return React.createElement(
                             'tspan',

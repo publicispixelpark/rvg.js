@@ -50,20 +50,20 @@ class Text extends DraggableBase {
                     let width = dim[1];
 
 
-                    return (<rect x={x}
+                    /*return (<rect x={x}
                                    y={(lineHeight * index) + y}
                                    fill={backgroundColor}
                                    height={height}
                                    width={width}
                                    key={'rect_' + index}
-                                   {...this.draggableProps}/>);
-                   /* return (
+                                   {...this.draggableProps}/>);*/
+                    return (
                         <tspan x={x}
                                y={(lineHeight * index) + y}
                                alignmentBaseline="middle"
                                key={'txt_' + index}>
                             {line}
-                        </tspan>);*/
+                        </tspan>);
                 }
                 else {
                     return (
