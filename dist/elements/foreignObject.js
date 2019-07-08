@@ -44,7 +44,6 @@ var ForeignObjects = function (_DraggableBase) {
             var height = dimension[0];
             var width = dimension[1];
 
-            var style = '\n            color: ' + color + '; \n            background-color: ' + backgroundColor + '; \n            padding: ' + padding + '; \n            font-family:' + fontFamily + ';\n            font-size:' + fontSize + ';\n        ';
             return React.createElement(
                 'foreignObject',
                 _extends({ x: x,
@@ -54,7 +53,12 @@ var ForeignObjects = function (_DraggableBase) {
                 }, this.draggableProps),
                 React.createElement(
                     'div',
-                    { xmlns: 'http://www.w3.org/1999/xhtml', style: style },
+                    { xmlns: 'http://www.w3.org/1999/xhtml',
+                        color: color,
+                        backgroundColor: backgroundColor,
+                        padding: padding,
+                        fontFamily: fontFamily,
+                        fontSize: fontSize },
                     text
                 )
             );
