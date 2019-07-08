@@ -55,11 +55,12 @@ class Text extends DraggableBase {
                               fill={backgroundColor}
                               height={height}
                               width={width}
+                              key={'rect_' + index}
                               {...this.draggableProps}>
                             <tspan x={x}
                                    y={(lineHeight * index) + y}
                                    alignmentBaseline="middle"
-                                   key={index} >
+                                   key={'txt_' + index} >
                                 {line}
                             </tspan>
                         </rect>);

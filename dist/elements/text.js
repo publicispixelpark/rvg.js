@@ -78,14 +78,15 @@ var Text = function (_DraggableBase) {
                                 y: lineHeight * index + y,
                                 fill: backgroundColor,
                                 height: height,
-                                width: width
+                                width: width,
+                                key: 'rect_' + index
                             }, _this2.draggableProps),
                             React.createElement(
                                 'tspan',
                                 { x: x,
                                     y: lineHeight * index + y,
                                     alignmentBaseline: 'middle',
-                                    key: index },
+                                    key: 'txt_' + index },
                                 line
                             )
                         );
