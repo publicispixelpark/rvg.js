@@ -32,9 +32,10 @@ var ForeignObjects = function (_DraggableBase) {
                 x = _props.x,
                 y = _props.y,
                 fontFamily = _props.fontFamily,
-                fontSize = _props.fontSize,
-                html = _props.html;
+                fontSize = _props.fontSize;
 
+
+            var html = this.props.children;
 
             var dimension = TextUtils.calculateHeightWidth(html, fontFamily, fontSize, '');
             var height = dimension[0];
@@ -66,8 +67,7 @@ ForeignObjects.propTypes = {
     x: React.PropTypes.any.isRequired,
     y: React.PropTypes.any.isRequired,
     fontSize: React.PropTypes.number,
-    fontFamily: React.PropTypes.string,
-    html: React.PropTypes.string
+    fontFamily: React.PropTypes.string
 };
 
 ForeignObjects.defaultProps = {
