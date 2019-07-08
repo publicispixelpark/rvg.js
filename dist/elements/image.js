@@ -15,54 +15,54 @@ var React = require('react');
 var DraggableBase = require('./base/draggable');
 
 var Image = function (_DraggableBase) {
-  _inherits(Image, _DraggableBase);
+    _inherits(Image, _DraggableBase);
 
-  function Image() {
-    _classCallCheck(this, Image);
+    function Image() {
+        _classCallCheck(this, Image);
 
-    return _possibleConstructorReturn(this, (Image.__proto__ || Object.getPrototypeOf(Image)).apply(this, arguments));
-  }
-
-  _createClass(Image, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          x = _props.x,
-          y = _props.y,
-          height = _props.height,
-          width = _props.width,
-          href = _props.href,
-          opacity = _props.opacity;
-
-
-      return React.createElement('image', _extends({ xlinkHref: href,
-        x: x,
-        y: y,
-        height: height,
-        width: width,
-        preserveAspectRatio: 'xMinYMin meet',
-        opacity: opacity
-      }, this.draggableProps));
+        return _possibleConstructorReturn(this, (Image.__proto__ || Object.getPrototypeOf(Image)).apply(this, arguments));
     }
-  }]);
 
-  return Image;
+    _createClass(Image, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                x = _props.x,
+                y = _props.y,
+                height = _props.height,
+                width = _props.width,
+                href = _props.href,
+                opacity = _props.opacity;
+
+
+            return React.createElement('image', _extends({ xlinkHref: href,
+                x: x,
+                y: y,
+                height: height,
+                width: width,
+                preserveAspectRatio: 'xMinYMin meet',
+                opacity: opacity
+            }, this.draggableProps));
+        }
+    }]);
+
+    return Image;
 }(DraggableBase);
 
 // Prop types
 
 
 Image.propTypes = {
-  x: React.PropTypes.number.isRequired,
-  y: React.PropTypes.number.isRequired,
-  href: React.PropTypes.string.isRequired,
-  ratio: React.PropTypes.string.isRequired
+    x: React.PropTypes.any.isRequired,
+    y: React.PropTypes.any.isRequired,
+    href: React.PropTypes.string.isRequired,
+    ratio: React.PropTypes.string.isRequired
 };
 
 Image.defaultProps = {
-  x: 0,
-  y: 0,
-  ratio: "auto"
+    x: 0,
+    y: 0,
+    ratio: "auto"
 };
 
 module.exports = Image;

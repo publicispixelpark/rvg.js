@@ -15,50 +15,50 @@ var React = require('react');
 var DraggableBase = require('./base/draggable');
 
 var Circle = function (_DraggableBase) {
-  _inherits(Circle, _DraggableBase);
+    _inherits(Circle, _DraggableBase);
 
-  function Circle() {
-    _classCallCheck(this, Circle);
+    function Circle() {
+        _classCallCheck(this, Circle);
 
-    return _possibleConstructorReturn(this, (Circle.__proto__ || Object.getPrototypeOf(Circle)).apply(this, arguments));
-  }
-
-  _createClass(Circle, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          x = _props.x,
-          y = _props.y,
-          fill = _props.fill,
-          radius = _props.radius;
-
-
-      return React.createElement('circle', _extends({ cx: x,
-        cy: y,
-        fill: fill,
-        r: radius
-      }, this.draggableProps));
+        return _possibleConstructorReturn(this, (Circle.__proto__ || Object.getPrototypeOf(Circle)).apply(this, arguments));
     }
-  }]);
 
-  return Circle;
+    _createClass(Circle, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                x = _props.x,
+                y = _props.y,
+                fill = _props.fill,
+                radius = _props.radius;
+
+
+            return React.createElement('circle', _extends({ cx: x,
+                cy: y,
+                fill: fill,
+                r: radius
+            }, this.draggableProps));
+        }
+    }]);
+
+    return Circle;
 }(DraggableBase);
 
 // Prop types
 
 
 Circle.propTypes = {
-  x: React.PropTypes.any.isRequired,
-  y: React.PropTypes.any.isRequired,
-  fill: React.PropTypes.string.isRequired,
-  radius: React.PropTypes.any.isRequired
+    x: React.PropTypes.any.isRequired,
+    y: React.PropTypes.any.isRequired,
+    fill: React.PropTypes.string.isRequired,
+    radius: React.PropTypes.any.isRequired
 };
 
 Circle.defaultProps = {
-  x: 100,
-  y: 100,
-  fill: '#000',
-  radius: 100
+    x: 100,
+    y: 100,
+    fill: '#000',
+    radius: 100
 };
 
 module.exports = Circle;

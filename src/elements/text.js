@@ -1,5 +1,6 @@
 const util = require('util');
 const React = require('react');
+const TextUtils = require('../utils/textUtils');
 
 const DraggableBase = require('./base/draggable');
 
@@ -21,10 +22,17 @@ class Text extends DraggableBase {
 
     render() {
         const {
-            x, y,
+            x,
+            y,
             fill,
-            fontSize, fontFamily, fontWeight, fontStyle,
-            textAnchor, smartQuotes
+            fontSize,
+            fontFamily,
+            fontWeight,
+            fontStyle,
+            textAnchor,
+            smartQuotes,
+            backgroundColor,
+            padding
         } = this.props;
 
         let text = this.props.children;
@@ -32,13 +40,32 @@ class Text extends DraggableBase {
         let lineHeight = this.props.lineHeight || fontSize;
 
         if ( util.isArray(text) ) {
-            text = text.map((string, index) => {
+            text = text.map((line, index) => {
                 if ( true === smartQuotes ) {
-                    string = string.addSmartQuotes();
+                    line = line.addSmartQuotes();
                 }
+                if (backgroundColor) {
+                    [height, width] = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
 
-                return (
-                    <tspan key={index} x={x} y={(lineHeight * index) + y} alignmentBaseline="middle">{string}</tspan>);
+                    return (
+                        <rect x={x}
+                              y={(lineHeight * index) + y}
+                              fill={backgroundColor}
+                              height={height}
+                              width={width}
+                              {...this.draggableProps}>
+                            <tspan x={x}
+                                   y={(lineHeight * index) + y}
+                                   alignmentBaseline="middle"
+                                   key={index} >
+                                {line}
+                            </tspan>
+                        </rect>);
+                }
+                else {
+                    return (
+                        <tspan key={index} x={x} y={(lineHeight * index) + y} alignmentBaseline="middle">{line}</tspan>);
+                }
             });
         }
         else {
@@ -61,7 +88,6 @@ class Text extends DraggableBase {
             </text>
         );
     }
-
 }
 
 // Prop types
@@ -72,7 +98,9 @@ Text.propTypes = {
     fontSize: React.PropTypes.number,
     fontFamily: React.PropTypes.string,
     fontStyle: React.PropTypes.string,
-    textAnchor: React.PropTypes.string
+    textAnchor: React.PropTypes.string,
+    backgroundColor: React.PropTypes.string,
+    padding: React.PropTypes.string
 };
 
 Text.defaultProps = {

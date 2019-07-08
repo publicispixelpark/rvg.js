@@ -15,48 +15,48 @@ var React = require('react');
 var DraggableBase = require('./base/draggable');
 
 var Line = function (_DraggableBase) {
-  _inherits(Line, _DraggableBase);
+    _inherits(Line, _DraggableBase);
 
-  function Line() {
-    _classCallCheck(this, Line);
+    function Line() {
+        _classCallCheck(this, Line);
 
-    return _possibleConstructorReturn(this, (Line.__proto__ || Object.getPrototypeOf(Line)).apply(this, arguments));
-  }
-
-  _createClass(Line, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          x = _props.x,
-          y = _props.y,
-          stroke = _props.stroke;
-
-
-      return React.createElement('line', _extends({ x1: x[0],
-        x2: x[1],
-        y1: y[0],
-        y2: y[1],
-        stroke: stroke
-      }, this.draggableProps));
+        return _possibleConstructorReturn(this, (Line.__proto__ || Object.getPrototypeOf(Line)).apply(this, arguments));
     }
-  }]);
 
-  return Line;
+    _createClass(Line, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                x = _props.x,
+                y = _props.y,
+                stroke = _props.stroke;
+
+
+            return React.createElement('line', _extends({ x1: x[0],
+                x2: x[1],
+                y1: y[0],
+                y2: y[1],
+                stroke: stroke
+            }, this.draggableProps));
+        }
+    }]);
+
+    return Line;
 }(DraggableBase);
 
 // Prop types
 
 
 Line.propTypes = {
-  x: React.PropTypes.array.isRequired,
-  y: React.PropTypes.array.isRequired,
-  stroke: React.PropTypes.string.isRequired
+    x: React.PropTypes.array.isRequired,
+    y: React.PropTypes.array.isRequired,
+    stroke: React.PropTypes.string.isRequired
 };
 
 Line.defaultProps = {
-  x: [100, 200],
-  y: [50, 100],
-  stroke: '#000'
+    x: [100, 200],
+    y: [50, 100],
+    stroke: '#000'
 };
 
 module.exports = Line;

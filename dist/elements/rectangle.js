@@ -15,59 +15,59 @@ var React = require('react');
 var DraggableBase = require('./base/draggable');
 
 var Rectangle = function (_DraggableBase) {
-  _inherits(Rectangle, _DraggableBase);
+    _inherits(Rectangle, _DraggableBase);
 
-  function Rectangle() {
-    _classCallCheck(this, Rectangle);
+    function Rectangle() {
+        _classCallCheck(this, Rectangle);
 
-    return _possibleConstructorReturn(this, (Rectangle.__proto__ || Object.getPrototypeOf(Rectangle)).apply(this, arguments));
-  }
-
-  _createClass(Rectangle, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          x = _props.x,
-          y = _props.y,
-          fill = _props.fill,
-          gradient = _props.gradient,
-          height = _props.height,
-          width = _props.width;
-
-
-      if (gradient) {
-        fill = gradient;
-      }
-
-      return React.createElement('rect', _extends({ x: x,
-        y: y,
-        fill: fill,
-        height: height,
-        width: width
-      }, this.draggableProps));
+        return _possibleConstructorReturn(this, (Rectangle.__proto__ || Object.getPrototypeOf(Rectangle)).apply(this, arguments));
     }
-  }]);
 
-  return Rectangle;
+    _createClass(Rectangle, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                x = _props.x,
+                y = _props.y,
+                fill = _props.fill,
+                gradient = _props.gradient,
+                height = _props.height,
+                width = _props.width;
+
+
+            if (gradient) {
+                fill = gradient;
+            }
+
+            return React.createElement('rect', _extends({ x: x,
+                y: y,
+                fill: fill,
+                height: height,
+                width: width
+            }, this.draggableProps));
+        }
+    }]);
+
+    return Rectangle;
 }(DraggableBase);
 
 // Prop types
 
 
 Rectangle.propTypes = {
-  x: React.PropTypes.any.isRequired,
-  y: React.PropTypes.any.isRequired,
-  fill: React.PropTypes.string.isRequired,
-  height: React.PropTypes.any.isRequired,
-  width: React.PropTypes.any.isRequired
+    x: React.PropTypes.any.isRequired,
+    y: React.PropTypes.any.isRequired,
+    fill: React.PropTypes.string.isRequired,
+    height: React.PropTypes.any.isRequired,
+    width: React.PropTypes.any.isRequired
 };
 
 Rectangle.defaultProps = {
-  x: 0,
-  y: 0,
-  fill: '#000',
-  height: 100,
-  width: 100
+    x: 0,
+    y: 0,
+    fill: '#000',
+    height: 100,
+    width: 100
 };
 
 module.exports = Rectangle;

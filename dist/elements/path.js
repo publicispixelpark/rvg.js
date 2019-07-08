@@ -15,38 +15,38 @@ var React = require('react');
 var DraggableBase = require('./base/draggable');
 
 var Path = function (_DraggableBase) {
-  _inherits(Path, _DraggableBase);
+    _inherits(Path, _DraggableBase);
 
-  function Path() {
-    _classCallCheck(this, Path);
+    function Path() {
+        _classCallCheck(this, Path);
 
-    return _possibleConstructorReturn(this, (Path.__proto__ || Object.getPrototypeOf(Path)).apply(this, arguments));
-  }
-
-  _createClass(Path, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          d = _props.d,
-          fill = _props.fill,
-          transform = _props.transform;
-
-
-      return React.createElement('path', _extends({ d: d,
-        fill: fill,
-        transform: transform
-      }, this.draggableProps));
+        return _possibleConstructorReturn(this, (Path.__proto__ || Object.getPrototypeOf(Path)).apply(this, arguments));
     }
-  }]);
 
-  return Path;
+    _createClass(Path, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                d = _props.d,
+                fill = _props.fill,
+                transform = _props.transform;
+
+
+            return React.createElement('path', _extends({ d: d,
+                fill: fill,
+                transform: transform
+            }, this.draggableProps));
+        }
+    }]);
+
+    return Path;
 }(DraggableBase);
 
 // Prop types
 
 
 Path.propTypes = {
-  d: React.PropTypes.string.isRequired
+    d: React.PropTypes.string.isRequired
 };
 
 Path.defaultProps = {};

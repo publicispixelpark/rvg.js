@@ -11,40 +11,40 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var React = require('react');
 
 var LinearGradient = function (_React$Component) {
-  _inherits(LinearGradient, _React$Component);
+    _inherits(LinearGradient, _React$Component);
 
-  function LinearGradient() {
-    _classCallCheck(this, LinearGradient);
+    function LinearGradient() {
+        _classCallCheck(this, LinearGradient);
 
-    return _possibleConstructorReturn(this, (LinearGradient.__proto__ || Object.getPrototypeOf(LinearGradient)).apply(this, arguments));
-  }
-
-  _createClass(LinearGradient, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          name = _props.name,
-          x1 = _props.x1,
-          x2 = _props.x2,
-          y1 = _props.y1,
-          y2 = _props.y2,
-          stops = _props.stops;
-
-
-      return React.createElement(
-        'linearGradient',
-        { id: name, x1: x1, x2: x2, y1: y1, y2: y2 },
-        stops.map(function (stop, index) {
-          return React.createElement('stop', { key: index,
-            offset: stop.offset,
-            stopColor: stop.color,
-            stopOpacity: stop.opacity });
-        })
-      );
+        return _possibleConstructorReturn(this, (LinearGradient.__proto__ || Object.getPrototypeOf(LinearGradient)).apply(this, arguments));
     }
-  }]);
 
-  return LinearGradient;
+    _createClass(LinearGradient, [{
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                name = _props.name,
+                x1 = _props.x1,
+                x2 = _props.x2,
+                y1 = _props.y1,
+                y2 = _props.y2,
+                stops = _props.stops;
+
+
+            return React.createElement(
+                'linearGradient',
+                { id: name, x1: x1, x2: x2, y1: y1, y2: y2 },
+                stops.map(function (stop, index) {
+                    return React.createElement('stop', { key: index,
+                        offset: stop.offset,
+                        stopColor: stop.color,
+                        stopOpacity: stop.opacity });
+                })
+            );
+        }
+    }]);
+
+    return LinearGradient;
 }(React.Component);
 
 // Prop types
