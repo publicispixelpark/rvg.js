@@ -4,19 +4,15 @@ require('babel-register')({
   extensions: [".es6", ".es", ".jsx", ".js"]
 });
 
-
 // Libraries
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
-
 // App
 const Main = require('./browser');
 
-
 // Server
 const http = require('http');
-
 
 // We need a function which handles requests and send response
 const handleRequest = (request, response) => {
@@ -25,8 +21,7 @@ const handleRequest = (request, response) => {
 
   response.writeHead(200, {'Content-Type': 'text/html'});
   response.end(string);
-}
-
+};
 
 // Create a server
 const server = http.createServer(handleRequest);
