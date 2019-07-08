@@ -32,15 +32,19 @@ var ForeignObjects = function (_DraggableBase) {
                 x = _props.x,
                 y = _props.y,
                 fontFamily = _props.fontFamily,
-                fontSize = _props.fontSize;
+                fontSize = _props.fontSize,
+                backgroundColor = _props.backgroundColor,
+                color = _props.color,
+                padding = _props.padding;
 
 
-            var html = this.props.children;
+            var text = this.props.children;
 
-            var dimension = TextUtils.calculateHeightWidth(html, fontFamily, fontSize, '');
+            var dimension = TextUtils.calculateHeightWidth(text, fontFamily, fontSize, padding);
             var height = dimension[0];
             var width = dimension[1];
 
+            var style = '\n            color: ' + color + '; \n            background-color: ' + backgroundColor + '; \n            padding: ' + padding + '; \n            font-family:' + fontFamily + ';\n            font-size:' + fontSize + ';\n        ';
             return React.createElement(
                 'foreignObject',
                 _extends({ x: x,
@@ -50,8 +54,8 @@ var ForeignObjects = function (_DraggableBase) {
                 }, this.draggableProps),
                 React.createElement(
                     'div',
-                    { xmlns: 'http://www.w3.org/1999/xhtml' },
-                    html
+                    { xmlns: 'http://www.w3.org/1999/xhtml', style: style },
+                    text
                 )
             );
         }
@@ -67,14 +71,20 @@ ForeignObjects.propTypes = {
     x: React.PropTypes.any.isRequired,
     y: React.PropTypes.any.isRequired,
     fontSize: React.PropTypes.number,
-    fontFamily: React.PropTypes.string
+    fontFamily: React.PropTypes.string,
+    backgroundColor: React.PropTypes.string,
+    color: React.PropTypes.string,
+    padding: React.PropTypes.string
 };
 
 ForeignObjects.defaultProps = {
     x: 0,
     y: 0,
     fontSize: 14,
-    fontFamily: 'serif'
+    fontFamily: 'serif',
+    backgroundColor: 'none',
+    color: '#000',
+    padding: '0'
 };
 
 module.exports = ForeignObjects;
