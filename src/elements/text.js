@@ -45,7 +45,9 @@ class Text extends DraggableBase {
                     line = line.addSmartQuotes();
                 }
                 if (backgroundColor) {
-                    [height, width] = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
+                    let dim = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
+                    let height = dim[0];
+                    let width = dim[1];
 
                     return (
                         <rect x={x}
