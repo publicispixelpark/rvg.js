@@ -62,20 +62,19 @@ var ForeignObjects = function (_DraggableBase) {
 // Prop types
 
 
-Rectangle.propTypes = {
+ForeignObjects.propTypes = {
     x: React.PropTypes.any.isRequired,
     y: React.PropTypes.any.isRequired,
-    fill: React.PropTypes.string.isRequired,
-    height: React.PropTypes.any.isRequired,
-    width: React.PropTypes.any.isRequired
+    fontSize: React.PropTypes.number,
+    fontFamily: React.PropTypes.string,
+    html: React.PropTypes.string
 };
 
-Rectangle.defaultProps = {
+ForeignObjects.defaultProps = {
     x: 0,
     y: 0,
-    fill: '#000',
-    height: 100,
-    width: 100
+    fontSize: 14,
+    fontFamily: 'serif'
 };
 
-module.exports = Rectangle;
+module.exports = ForeignObjects;
