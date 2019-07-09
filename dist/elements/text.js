@@ -65,34 +65,15 @@ var Text = function (_DraggableBase) {
                     if (true === smartQuotes) {
                         line = line.addSmartQuotes();
                     }
-                    if (backgroundColor) {
-                        var dim = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
-                        var height = dim[0];
-                        var width = dim[1];
 
-                        /*return (<rect x={x}
-                                       y={(lineHeight * index) + y}
-                                       fill={backgroundColor}
-                                       height={height}
-                                       width={width}
-                                       key={'rect_' + index}
-                                       {...this.draggableProps}/>);*/
-                        return React.createElement(
-                            'tspan',
-                            { x: x,
-                                y: lineHeight * index + y,
-                                alignmentBaseline: 'middle',
-                                key: 'txt_' + index },
-                            line
-                        );
-                    } else {
-                        return React.createElement(
-                            'tspan',
-                            { key: index, x: x, y: lineHeight * index + y,
-                                alignmentBaseline: 'middle' },
-                            line
-                        );
-                    }
+                    return React.createElement(
+                        'tspan',
+                        { x: x,
+                            y: lineHeight * index + y,
+                            alignmentBaseline: 'middle',
+                            key: index },
+                        line
+                    );
                 });
             } else {
                 if (true === smartQuotes) {

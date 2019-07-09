@@ -30,9 +30,7 @@ class Text extends DraggableBase {
             fontWeight,
             fontStyle,
             textAnchor,
-            smartQuotes,
-            backgroundColor,
-            padding
+            smartQuotes
         } = this.props;
 
         let text = this.props.children;
@@ -44,32 +42,14 @@ class Text extends DraggableBase {
                 if ( true === smartQuotes ) {
                     line = line.addSmartQuotes();
                 }
-                if ( backgroundColor ) {
-                    let dim = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
-                    let height = dim[0];
-                    let width = dim[1];
 
-
-                    /*return (<rect x={x}
-                                   y={(lineHeight * index) + y}
-                                   fill={backgroundColor}
-                                   height={height}
-                                   width={width}
-                                   key={'rect_' + index}
-                                   {...this.draggableProps}/>);*/
-                    return (
-                        <tspan x={x}
-                               y={(lineHeight * index) + y}
-                               alignmentBaseline="middle"
-                               key={'txt_' + index}>
-                            {line}
-                        </tspan>);
-                }
-                else {
-                    return (
-                        <tspan key={index} x={x} y={(lineHeight * index) + y}
-                               alignmentBaseline="middle">{line}</tspan>);
-                }
+                return (
+                    <tspan x={x}
+                           y={(lineHeight * index) + y}
+                           alignmentBaseline="middle"
+                           key={index}>
+                        {line}
+                    </tspan>);
             });
         }
         else {

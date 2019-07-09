@@ -40,6 +40,21 @@ var ForeignObjects = function (_DraggableBase) {
 
             var text = this.props.children;
 
+            var lineHeight = this.props.lineHeight || fontSize;
+
+            if (util.isArray(text)) {
+                text = text.map(function (line, index) {
+                    return React.createElement(
+                        'tspan',
+                        { x: x,
+                            y: lineHeight * index + y,
+                            alignmentBaseline: 'middle',
+                            key: index },
+                        line
+                    );
+                });
+            }
+
             var dimension = TextUtils.calculateHeightWidth(text, fontFamily, fontSize, padding);
             var height = dimension[0];
             var width = dimension[1];
@@ -89,7 +104,7 @@ ForeignObjects.defaultProps = {
     y: 0,
     fontSize: 14,
     fontFamily: 'serif',
-    backgroundColor: 'none',
+    backgroundColor: 'inherit',
     color: '#000',
     padding: '0'
 };
