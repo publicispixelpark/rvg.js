@@ -2,7 +2,7 @@
 module.exports = {
     calculateHeightWidth (text, fontname, fontsize, padding) {
         // Create dummy span
-        let elem = document.createElement('div');
+        let elem = document.createElement('span');
         elem.style.visibility = 'hidden';
         // Set font-size
         elem.style.fontSize = fontsize + 'px';
