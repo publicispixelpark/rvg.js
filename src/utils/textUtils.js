@@ -10,7 +10,10 @@ module.exports = {
         elem.style.fontFamily = fontname;
         // Set padding
         if (padding) {
-            elem.style.padding = padding;
+            elem.style.paddingTop = padding.top + 'px';
+            elem.style.paddingRight = padding.right + 'px';
+            elem.style.paddingBottom = padding.bottom + 'px';
+            elem.style.paddingLeft = padding.left + 'px';
         }
         // Set text
         elem.innerHTML = text;

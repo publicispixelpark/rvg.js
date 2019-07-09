@@ -23,7 +23,6 @@ class DraggableBase extends React.Component {
             }
         }
     }
-
 }
 
 module.exports = DraggableBase;

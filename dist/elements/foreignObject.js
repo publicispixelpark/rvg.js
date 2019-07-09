@@ -43,15 +43,13 @@ var ForeignObjects = function (_DraggableBase) {
 
             var lineHeight = this.props.lineHeight || fontSize;
 
-            var result = [];
-
             if (!util.isArray(text)) {
                 text = [text];
             }
 
             var height = 0;
             var width = 0;
-            result = text.map(function (line, index) {
+            var result = text.map(function (line, index) {
                 var dimension = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
                 height = height + dimension[0];
                 width = Math.max(width, dimension[1]);
@@ -59,14 +57,20 @@ var ForeignObjects = function (_DraggableBase) {
                 var styles = {
                     color: color,
                     backgroundColor: backgroundColor,
-                    padding: padding,
+                    float: 'left',
                     fontFamily: fontFamily,
-                    fontSize: fontSize
+                    fontSize: fontSize,
+                    paddingTop: padding.top + 'px',
+                    paddingRight: padding.right + 'px',
+                    paddingBottom: padding.bottom + 'px',
+                    paddingLeft: padding.left + 'px',
+                    pointerEvents: 'none',
+                    whiteSpace: 'nowrap'
                 };
 
                 return React.createElement(
-                    'div',
-                    { xmlns: 'http://www.w3.org/1999/xhtml', style: styles },
+                    'span',
+                    { xmlns: 'http://www.w3.org/1999/xhtml', style: styles, key: index },
                     line
                 );
             });
@@ -76,8 +80,8 @@ var ForeignObjects = function (_DraggableBase) {
                 _extends({
                     x: x,
                     y: y,
-                    height: height,
-                    width: width
+                    height: height + padding.top + padding.bottom,
+                    width: width + padding.left + padding.right
                 }, this.draggableProps),
                 result
             );
@@ -93,12 +97,12 @@ var ForeignObjects = function (_DraggableBase) {
 ForeignObjects.propTypes = {
     x: React.PropTypes.any.isRequired,
     y: React.PropTypes.any.isRequired,
-    fontSize: React.PropTypes.number,
+    fontSize: React.PropTypes.any,
     fontFamily: React.PropTypes.string,
     lineHeight: React.PropTypes.any,
     backgroundColor: React.PropTypes.string,
     color: React.PropTypes.string,
-    padding: React.PropTypes.string
+    padding: React.PropTypes.any
 };
 
 ForeignObjects.defaultProps = {
@@ -109,7 +113,7 @@ ForeignObjects.defaultProps = {
     lineHeight: 1.2,
     backgroundColor: 'inherit',
     color: '#0000',
-    padding: '0'
+    padding: { top: 0, right: 0, bottom: 0, left: 0 }
 };
 
 module.exports = ForeignObjects;
