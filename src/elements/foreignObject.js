@@ -23,13 +23,14 @@ class ForeignObjects extends DraggableBase {
         let height = dimension[0];
         let width = dimension[1];
 
-        let styles = `
-            color: ${color}; 
-            background-color: ${backgroundColor}; 
-            padding: ${padding}; 
-            font-family:${fontFamily};
-            font-size:${fontSize};
-        `;
+        let styles = {
+            color: color,
+            backgroundColor: backgroundColor,
+            padding: padding,
+            fontFamily: fontFamily,
+            fontSize: fontSize
+        };
+
         return (
             <foreignObject x={x}
                   y={y}

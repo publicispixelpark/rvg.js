@@ -44,7 +44,14 @@ var ForeignObjects = function (_DraggableBase) {
             var height = dimension[0];
             var width = dimension[1];
 
-            var styles = '\n            color: ' + color + '; \n            background-color: ' + backgroundColor + '; \n            padding: ' + padding + '; \n            font-family:' + fontFamily + ';\n            font-size:' + fontSize + ';\n        ';
+            var styles = {
+                color: color,
+                backgroundColor: backgroundColor,
+                padding: padding,
+                fontFamily: fontFamily,
+                fontSize: fontSize
+            };
+
             return React.createElement(
                 'foreignObject',
                 _extends({ x: x,
