@@ -108,7 +108,7 @@ ForeignObjects.defaultProps = {
     fontFamily: 'serif',
     lineHeight: 1.2,
     backgroundColor: 'inherit',
-    color: '#000',
+    color: '#0000',
     padding: '0'
 };
 
