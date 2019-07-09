@@ -51,9 +51,7 @@ var Text = function (_DraggableBase) {
                 fontWeight = _props.fontWeight,
                 fontStyle = _props.fontStyle,
                 textAnchor = _props.textAnchor,
-                smartQuotes = _props.smartQuotes,
-                backgroundColor = _props.backgroundColor,
-                padding = _props.padding;
+                smartQuotes = _props.smartQuotes;
 
 
             var text = this.props.children;

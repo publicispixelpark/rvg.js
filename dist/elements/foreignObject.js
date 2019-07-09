@@ -10,6 +10,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var util = require('util');
 var React = require('react');
 
 var DraggableBase = require('./base/draggable');
@@ -28,6 +29,8 @@ var ForeignObjects = function (_DraggableBase) {
     _createClass(ForeignObjects, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             var _props = this.props,
                 x = _props.x,
                 y = _props.y,
@@ -42,44 +45,43 @@ var ForeignObjects = function (_DraggableBase) {
 
             var lineHeight = this.props.lineHeight || fontSize;
 
-            if (util.isArray(text)) {
-                text = text.map(function (line, index) {
-                    return React.createElement(
-                        'tspan',
-                        { x: x,
-                            y: lineHeight * index + y,
-                            alignmentBaseline: 'middle',
-                            key: index },
-                        line
-                    );
-                });
+            var result = [];
+
+            if (!util.isArray(text)) {
+                text = [text];
             }
 
-            var dimension = TextUtils.calculateHeightWidth(text, fontFamily, fontSize, padding);
-            var height = dimension[0];
-            var width = dimension[1];
+            result = text.map(function (line, index) {
+                var dimension = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
+                var height = dimension[0];
+                var width = dimension[1];
 
-            var styles = {
-                color: color,
-                backgroundColor: backgroundColor,
-                padding: padding,
-                fontFamily: fontFamily,
-                fontSize: fontSize
-            };
+                var styles = {
+                    color: color,
+                    backgroundColor: backgroundColor,
+                    padding: padding,
+                    fontFamily: fontFamily,
+                    fontSize: fontSize
+                };
 
-            return React.createElement(
-                'foreignObject',
-                _extends({ x: x,
-                    y: y,
-                    height: height,
-                    width: width
-                }, this.draggableProps),
-                React.createElement(
-                    'div',
-                    { xmlns: 'http://www.w3.org/1999/xhtml', style: styles },
-                    text
-                )
-            );
+                return React.createElement(
+                    'foreignObject',
+                    _extends({
+                        x: x,
+                        y: lineHeight * index + y,
+                        height: height,
+                        width: width
+                    }, _this2.draggableProps, {
+                        key: 'fo_' + index }),
+                    React.createElement(
+                        'div',
+                        { xmlns: 'http://www.w3.org/1999/xhtml', style: styles },
+                        line
+                    )
+                );
+            });
+
+            return result;
         }
     }]);
 
@@ -94,6 +96,7 @@ ForeignObjects.propTypes = {
     y: React.PropTypes.any.isRequired,
     fontSize: React.PropTypes.number,
     fontFamily: React.PropTypes.string,
+    lineHeight: React.PropTypes.any,
     backgroundColor: React.PropTypes.string,
     color: React.PropTypes.string,
     padding: React.PropTypes.string
@@ -104,6 +107,7 @@ ForeignObjects.defaultProps = {
     y: 0,
     fontSize: 14,
     fontFamily: 'serif',
+    lineHeight: 1.2,
     backgroundColor: 'inherit',
     color: '#000',
     padding: '0'
