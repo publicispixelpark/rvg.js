@@ -29,8 +29,6 @@ var ForeignObjects = function (_DraggableBase) {
     _createClass(ForeignObjects, [{
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
             var _props = this.props,
                 x = _props.x,
                 y = _props.y,
@@ -51,10 +49,12 @@ var ForeignObjects = function (_DraggableBase) {
                 text = [text];
             }
 
+            var height = 0;
+            var width = 0;
             result = text.map(function (line, index) {
                 var dimension = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
-                var height = dimension[0];
-                var width = dimension[1];
+                height = height + dimension[0];
+                width = Math.max(width, dimension[1]);
 
                 var styles = {
                     color: color,
@@ -65,23 +65,22 @@ var ForeignObjects = function (_DraggableBase) {
                 };
 
                 return React.createElement(
-                    'foreignObject',
-                    _extends({
-                        x: x,
-                        y: lineHeight * index + y,
-                        height: height,
-                        width: width
-                    }, _this2.draggableProps, {
-                        key: 'fo_' + index }),
-                    React.createElement(
-                        'div',
-                        { xmlns: 'http://www.w3.org/1999/xhtml', style: styles },
-                        line
-                    )
+                    'div',
+                    { xmlns: 'http://www.w3.org/1999/xhtml', style: styles },
+                    line
                 );
             });
 
-            return result;
+            return React.createElement(
+                'foreignObject',
+                _extends({
+                    x: x,
+                    y: y,
+                    height: height,
+                    width: width
+                }, this.draggableProps),
+                result
+            );
         }
     }]);
 

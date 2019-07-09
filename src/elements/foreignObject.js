@@ -28,10 +28,12 @@ class ForeignObjects extends DraggableBase {
             text = [text];
         }
 
+        let height = 0;
+        let width = 0;
         result = text.map((line, index) => {
             let dimension = TextUtils.calculateHeightWidth(line, fontFamily, fontSize, padding);
-            let height = dimension[0];
-            let width = dimension[1];
+            height = height + dimension[0];
+            width = Math.max(width, dimension[1]);
 
             let styles = {
                 color: color,
@@ -42,21 +44,20 @@ class ForeignObjects extends DraggableBase {
             };
 
             return (
-                <foreignObject
-                    x={x}
-                    y={(lineHeight * index) + y}
-                    height={height}
-                    width={width}
-                    {...this.draggableProps}
-                    key={'fo_' + index}>
-
-                    <div xmlns="http://www.w3.org/1999/xhtml" style={styles}>
-                        {line}
-                    </div>
-                </foreignObject>);
+                <div xmlns="http://www.w3.org/1999/xhtml" style={styles}>
+                    {line}
+                </div>);
         });
 
-        return result;
+        return (
+            <foreignObject
+                x={x}
+                y={y}
+                height={height}
+                width={width}
+                {...this.draggableProps}>
+                {result}
+            </foreignObject>);
     }
 }
 
