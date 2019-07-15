@@ -70,7 +70,7 @@ var ForeignObjects = function (_DraggableBase) {
 
                 return React.createElement(
                     'span',
-                    { xmlns: 'http://www.w3.org/1999/xhtml', style: styles, key: index },
+                    { xmlns: 'http://www.w3.org/1999/xhtml', style: styles, key: 'foreign_object_elem_' + index },
                     line
                 );
             });
@@ -80,8 +80,8 @@ var ForeignObjects = function (_DraggableBase) {
                 _extends({
                     x: x,
                     y: y,
-                    height: height + padding.top + padding.bottom,
-                    width: width + padding.left + padding.right
+                    height: height,
+                    width: width
                 }, this.draggableProps),
                 result
             );
@@ -109,7 +109,7 @@ ForeignObjects.defaultProps = {
     x: 0,
     y: 0,
     fontSize: 14,
-    fontFamily: 'serif',
+    fontFamily: 'sans serif',
     lineHeight: 1.2,
     backgroundColor: 'inherit',
     color: '#0000',

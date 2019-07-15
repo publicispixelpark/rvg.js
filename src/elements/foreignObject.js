@@ -15,7 +15,7 @@ class ForeignObjects extends DraggableBase {
             fontSize,
             backgroundColor,
             color,
-            padding,
+            padding
         } = this.props;
 
         let text = this.props.children;
@@ -48,7 +48,7 @@ class ForeignObjects extends DraggableBase {
             };
 
             return (
-                <span xmlns="http://www.w3.org/1999/xhtml" style={styles} key={index}>
+                <span xmlns="http://www.w3.org/1999/xhtml" style={styles} key={'foreign_object_elem_' + index}>
                     {line}
                 </span>);
         });
@@ -57,8 +57,8 @@ class ForeignObjects extends DraggableBase {
             <foreignObject
                 x={x}
                 y={y}
-                height={height + padding.top + padding.bottom}
-                width={width + padding.left + padding.right}
+                height={height}
+                width={width}
                 {...this.draggableProps}>
                 {result}
             </foreignObject>);
@@ -81,7 +81,7 @@ ForeignObjects.defaultProps = {
     x: 0,
     y: 0,
     fontSize: 14,
-    fontFamily: 'serif',
+    fontFamily: 'sans serif',
     lineHeight: 1.2,
     backgroundColor: 'inherit',
     color: '#0000',
