@@ -74,7 +74,7 @@ var ForeignObjects = function (_DraggableBase) {
                     line
                 );
             });
-
+            this.draggableProps.style.overflow = 'visible';
             return React.createElement(
                 'foreignObject',
                 _extends({

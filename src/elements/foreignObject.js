@@ -52,7 +52,7 @@ class ForeignObjects extends DraggableBase {
                     {line}
                 </span>);
         });
-
+        this.draggableProps.style.overflow = 'visible';
         return (
             <foreignObject
                 x={x}
